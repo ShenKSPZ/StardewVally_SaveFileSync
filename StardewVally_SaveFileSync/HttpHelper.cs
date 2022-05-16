@@ -168,6 +168,7 @@ namespace StardewVally_SaveFileSync
             {
                 lock(postCallback)
                 {
+                    FileStream fileStream = null;
                     try
                     {
                         string url = URI + "StardewVally_SaveFileUpload/" + SaveFileOperation.GetSaveFileTimeStampByPath(filePath);
@@ -178,7 +179,7 @@ namespace StardewVally_SaveFileSync
                         var boundary = "---------------" + DateTime.Now.Ticks.ToString("x");
                         // 边界符
                         //var beginBoundary = Encoding.ASCII.GetBytes("--" + boundary + "\r\n");
-                        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                        fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                         // 最后的结束符
                         //var endBoundary = Encoding.ASCII.GetBytes("--" + boundary + "--\r\n");
 
@@ -233,6 +234,8 @@ namespace StardewVally_SaveFileSync
                     }
                     catch (Exception e)
                     {
+                        if(fileStream != null)
+                            fileStream.Close();
                         postCallback(e.Message);
                         MessageBox.Show(e.Message);
                         Posting = false;
