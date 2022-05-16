@@ -4,6 +4,9 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <Authors>Lawrence_Peng</Authors>
+    <Company>Bioflame_Studio</Company>
+    <Description>用于继续星露谷物语多端存档同步的工具。</Description>
   </PropertyGroup>
 
   <ItemGroup>
