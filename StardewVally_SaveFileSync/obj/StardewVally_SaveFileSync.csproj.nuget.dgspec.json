@@ -1,28 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ProjectX\\CSharp\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj": {}
+    "C:\\Users\\zhang\\OneDrive\\桌面\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj": {}
   },
   "projects": {
-    "D:\\ProjectX\\CSharp\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj": {
+    "C:\\Users\\zhang\\OneDrive\\桌面\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ProjectX\\CSharp\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj",
+        "projectUniqueName": "C:\\Users\\zhang\\OneDrive\\桌面\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj",
         "projectName": "StardewVally_SaveFileSync",
-        "projectPath": "D:\\ProjectX\\CSharp\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj",
-        "packagesPath": "C:\\Users\\Lawrence\\.nuget\\packages\\",
-        "outputPath": "D:\\ProjectX\\CSharp\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\obj\\",
+        "projectPath": "C:\\Users\\zhang\\OneDrive\\桌面\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj",
+        "packagesPath": "C:\\Users\\zhang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zhang\\OneDrive\\桌面\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Lawrence\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\zhang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows7.0"
+          "net5.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -38,18 +34,31 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

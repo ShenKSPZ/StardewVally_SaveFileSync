@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yXpCAIHKNmCbFDg6jgtFgHAP3P9AGAfX/ih5+ZQ9Su1oQeHtIvXznsqzKaZzlSyDnR+gNvO/zBsNDXi6nWTpGg==",
+  "dgSpecHash": "cus3BpuPoaw=",
   "success": true,
-  "projectFilePath": "D:\\ProjectX\\CSharp\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\zhang\\OneDrive\\桌面\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync\\StardewVally_SaveFileSync.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zhang\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
