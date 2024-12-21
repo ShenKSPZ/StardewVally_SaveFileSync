@@ -15,9 +15,9 @@ C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSy
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\bin\Debug\net5.0-windows\StardewVally_SaveFileSync.dll
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\bin\Debug\net5.0-windows\StardewVally_SaveFileSync.pdb
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
-C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\StardewVally_SaveFileSync.csproj.CopyComplete
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\StardewVally_SaveFileSync.dll
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\refint\StardewVally_SaveFileSync.dll
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\StardewVally_SaveFileSync.pdb
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\StardewVally_SaveFileSync.genruntimeconfig.cache
 C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\ref\StardewVally_SaveFileSync.dll
+C:\Users\zhang\OneDrive\桌面\StardewVally_SaveFileSync\StardewVally_SaveFileSync\obj\Debug\net5.0-windows\StardewVally_SaveFileSync.csproj.CopyComplete

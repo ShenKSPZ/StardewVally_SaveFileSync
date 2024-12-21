@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\StardewVally_SaveFileSync"
+    "\\StardewVally_SaveFileSync",
+    "\\StardewVally_SaveFileSync\\bin",
+    "\\StardewVally_SaveFileSync\\bin\\Debug",
+    "\\StardewVally_SaveFileSync\\bin\\Release",
+    "\\StardewVally_Server"
   ],
-  "SelectedNode": "\\StardewVally_SaveFileSync\\Download.cs",
+  "SelectedNode": "\\StardewVally_SaveFileSync\\Upload.cs",
   "PreviewInSolutionExplorer": true
 }
