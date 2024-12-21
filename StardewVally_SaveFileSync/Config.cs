@@ -11,7 +11,7 @@ namespace StardewVally_SaveFileSync
     [Serializable]
     public class Config
     {
-        public string URL = "http://123.57.229.186:8082/";
+        public string URL = "http://0.0.0.0:8082/";
         public bool isAutoUploadSave = true;
         public string SaveFileNameForAutoUpload = "";
         public string SaveFileDefaultCharacter = "";
