@@ -34,7 +34,6 @@ server.listen(8082, IP, () => {
             var first = true;
             req.on('data', chunk => {
                 data += chunk;
-                console.log('开始上传')
             })
             req.on('end', ()=>{
                 var fileName = data.match(fileNameReg)[0];
