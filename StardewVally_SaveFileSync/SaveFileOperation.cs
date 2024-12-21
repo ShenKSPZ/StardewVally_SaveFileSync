@@ -72,7 +72,15 @@ namespace StardewVally_SaveFileSync
 
             //找出存档中的玩家
             string playerName = playerNode.SelectSingleNode("name").InnerText;
-            XmlNodeList farmHandList = xmlData.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            XmlNodeList farmHandList;
+            if (xmlData.SelectSingleNode("SaveGame/farmhands") == null)
+            {
+                farmHandList = xmlData.SelectNodes("noneExist");
+            }
+            else
+            {
+                farmHandList = xmlData.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            }
             if (keepEmptyPlayer)
             {
                 saveFileInfo.Players = new string[farmHandList.Count + 1];
@@ -128,7 +136,16 @@ namespace StardewVally_SaveFileSync
 
             //找出存档中的玩家
             string playerName = playerNode.SelectSingleNode("name").InnerText;
-            XmlNodeList farmHandList = xmlData.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            XmlNodeList farmHandList;
+            if (xmlData.SelectSingleNode("SaveGame/farmhands") == null)
+            {
+                farmHandList = xmlData.SelectNodes("noneExist");
+            } else
+            {
+                farmHandList = xmlData.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            }
+            
+            
             if (keepEmptyPlayer)
             {
                 saveFileInfo.Players = new string[farmHandList.Count + 1];
@@ -251,7 +268,15 @@ namespace StardewVally_SaveFileSync
             XmlNode MainPlayerNode = xml.SelectSingleNode("SaveGame/player");
 
             //找出要进行替换的副玩家节点
-            XmlNodeList FarmhandList = xml.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            XmlNodeList FarmhandList;
+            if (xml.SelectSingleNode("SaveGame/farmhands") == null)
+            {
+                FarmhandList = xml.SelectNodes("noneExist");
+            }
+            else
+            {
+                FarmhandList = xml.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            }
             XmlNode FarmHandNode = null;
             for (int i = 0; i < FarmhandList.Count; i++)
             {
