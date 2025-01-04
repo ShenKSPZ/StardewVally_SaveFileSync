@@ -242,6 +242,10 @@ namespace StardewVally_SaveFileSync
         {
             if(isReplaceLocal)
             {
+                if (comboBox1.SelectedItem == null)
+                {
+                    return;
+                }
                 var content = File.ReadAllText(SaveFileOperation.GetSaveFilePathByName(comboBox1.SelectedItem.ToString()));
                 SaveFileInfo info = SaveFileOperation.ReadSaveFileFromXML(content, false);
                 infoLabel.Text = "本地的存档的信息：" + "\r\n" + "\r\n";

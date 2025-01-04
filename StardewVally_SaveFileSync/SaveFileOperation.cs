@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Diagnostics;
 
 namespace StardewVally_SaveFileSync
 {
@@ -25,7 +23,7 @@ namespace StardewVally_SaveFileSync
 
         public static string[] GetAllSaveFileName()
         {
-            if(CheckSaveFileFolderExist())
+            if (CheckSaveFileFolderExist())
             {
                 string[] strs = Directory.GetDirectories(SaveFileFolder);
                 string[] value = new string[strs.Length];
@@ -61,6 +59,7 @@ namespace StardewVally_SaveFileSync
         {
             SaveFileInfo saveFileInfo = new SaveFileInfo();
             string path = GetSaveFilePathByName(saveFileName);
+            Console.WriteLine(path);
             string content = File.ReadAllText(path);
             XmlDocument xmlData = new XmlDocument();
             xmlData.LoadXml(content);
@@ -73,7 +72,15 @@ namespace StardewVally_SaveFileSync
 
             //找出存档中的玩家
             string playerName = playerNode.SelectSingleNode("name").InnerText;
-            XmlNodeList farmHandList = xmlData.SelectNodes("SaveGame/locations/GameLocation/buildings/Building/indoors/farmhand");
+            XmlNodeList farmHandList;
+            if (xmlData.SelectSingleNode("SaveGame/farmhands") == null)
+            {
+                farmHandList = xmlData.SelectNodes("noneExist");
+            }
+            else
+            {
+                farmHandList = xmlData.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            }
             if (keepEmptyPlayer)
             {
                 saveFileInfo.Players = new string[farmHandList.Count + 1];
@@ -129,7 +136,16 @@ namespace StardewVally_SaveFileSync
 
             //找出存档中的玩家
             string playerName = playerNode.SelectSingleNode("name").InnerText;
-            XmlNodeList farmHandList = xmlData.SelectNodes("SaveGame/locations/GameLocation/buildings/Building/indoors/farmhand");
+            XmlNodeList farmHandList;
+            if (xmlData.SelectSingleNode("SaveGame/farmhands") == null)
+            {
+                farmHandList = xmlData.SelectNodes("noneExist");
+            } else
+            {
+                farmHandList = xmlData.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            }
+            
+            
             if (keepEmptyPlayer)
             {
                 saveFileInfo.Players = new string[farmHandList.Count + 1];
@@ -148,6 +164,7 @@ namespace StardewVally_SaveFileSync
                 Players.Add(playerName);
                 for (int i = 0; i < farmHandList.Count; i++)
                 {
+                    Debug.WriteLine(farmHandList[i]) ;
                     string farmHandName = farmHandList[i].SelectSingleNode("name").InnerText;
                     if (farmHandName != "")
                         Players.Add(farmHandName);
@@ -206,7 +223,7 @@ namespace StardewVally_SaveFileSync
             {
                 string content = File.ReadAllText(GetSaveFilePathByName(saveFileName));
                 XmlDocument xml = SwapCharacterByContent(content, farmhandName);
-                if(xml != null)
+                if (xml != null)
                 {
                     //保存替换完毕的存档文件
                     try
@@ -227,7 +244,7 @@ namespace StardewVally_SaveFileSync
                         saveFileInfoXml.SelectSingleNode("Farmer").InnerXml = xml.SelectSingleNode("SaveGame/player").InnerXml;
                         saveFileInfoXml.Save(GetSaveGameInfoPathByName(saveFileName));
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         MessageBox.Show("替换SaveGameInfo的时候出现问题了，错误为：" + e.Message);
                     }
@@ -236,7 +253,7 @@ namespace StardewVally_SaveFileSync
 
                 return false;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("读取本地存档过程中遇到问题，错误为：" + e.Message);
             }
@@ -251,11 +268,19 @@ namespace StardewVally_SaveFileSync
             XmlNode MainPlayerNode = xml.SelectSingleNode("SaveGame/player");
 
             //找出要进行替换的副玩家节点
-            XmlNodeList FarmhandList = xml.SelectNodes("SaveGame/locations/GameLocation/buildings/Building/indoors/farmhand");
+            XmlNodeList FarmhandList;
+            if (xml.SelectSingleNode("SaveGame/farmhands") == null)
+            {
+                FarmhandList = xml.SelectNodes("noneExist");
+            }
+            else
+            {
+                FarmhandList = xml.SelectSingleNode("SaveGame/farmhands").ChildNodes;
+            }
             XmlNode FarmHandNode = null;
             for (int i = 0; i < FarmhandList.Count; i++)
             {
-                if(FarmhandList[i].SelectSingleNode("name").InnerText == farmhandName)
+                if (FarmhandList[i].SelectSingleNode("name").InnerText == farmhandName)
                 {
                     FarmHandNode = FarmhandList[i];
                 }
@@ -316,7 +341,7 @@ namespace StardewVally_SaveFileSync
 
         public static void SwapAllContentBetweemNode(XmlNode aNode, XmlNode bNode)
         {
-            string a_InnerText= aNode.InnerText;
+            string a_InnerText = aNode.InnerText;
             string a_InnerXML = aNode.InnerXml;
 
             aNode.InnerText = bNode.InnerText;
@@ -368,7 +393,7 @@ namespace StardewVally_SaveFileSync
                 else
                     return 0;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("获取本地存档修改时间的时候发生问题，错误为" + e.Message);
                 return 0;
@@ -418,13 +443,13 @@ namespace StardewVally_SaveFileSync
         public static string FindChildNodeByName(XmlNode node, string name)
         {
             string CurrentPath = "";
-            if(node.Name == name)
+            if (node.Name == name)
             {
                 return node.Name;
             }
-            
+
             XmlNodeList list = node.ChildNodes;
-            if(list.Count != 0)
+            if (list.Count != 0)
             {
                 for (int i = 0; i < list.Count; i++)
                 {

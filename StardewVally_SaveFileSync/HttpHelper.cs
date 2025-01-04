@@ -185,7 +185,7 @@ namespace StardewVally_SaveFileSync
 
                         // 设置属性
                         webRequest.Method = "POST";
-                        webRequest.Timeout = timeOut;
+                        webRequest.Timeout = 500000;
                         webRequest.ContentType = "multipart/form-data; boundary=" + boundary;
 
                         // 写入文件----------1.--------------
